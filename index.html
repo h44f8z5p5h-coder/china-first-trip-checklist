@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>China First Trip Setup Checklist</title>
+    <style>
+      :root{
+        --bg:#ffffff;
+        --bg-soft:#f6f5f2;
+        --bg-card:#ffffff;
+        --ink:#1c1a17;
+        --ink-2:#4a463f;
+        --ink-3:#7a756a;
+        --line:#e5e1d8;
+        --line-strong:#cfc9ba;
+        --red:#b42318;
+        --red-soft:#fdf0ee;
+        --red-ink:#8f1d14;
+        --jade:#0f766e;
+        --jade-soft:#ecfdf8;
+        --amber:#92400e;
+        --amber-soft:#fff7e8;
+        --blue:#1d4ed8;
+        --blue-soft:#eff4ff;
+        --check-bg:#1c1a17;
+        --radius:14px;
+        --shadow:0 1px 2px rgba(28,26,23,.05),0 8px 24px rgba(28,26,23,.05);
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#161513;
+          --bg-soft:#1e1c19;
+          --bg-card:#201e1b;
+          --ink:#f2efe9;
+          --ink-2:#c9c3b8;
+          --ink-3:#9a9488;
+          --line:#33302a;
+          --line-strong:#4a463d;
+          --red:#f26d5f;
+          --red-soft:#2e1a17;
+          --red-ink:#fda99f;
+          --jade:#2dd4bf;
+          --jade-soft:#0f2a27;
+          --amber:#fbbf24;
+          --amber-soft:#2c2310;
+          --blue:#93b4ff;
+          --blue-soft:#1a2340;
+          --check-bg:#f2efe9;
+          --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+        }
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;background:var(--bg);color:var(--ink);
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+        line-height:1.6;-webkit-font-smoothing:antialiased;
+      }
+      a{color:var(--red);text-underline-offset:3px}
+      button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:2rem}
+
+      .wrap{max-width:780px;margin:0 auto;padding:0 20px 64px}
+
+      /* ---------- Header ---------- */
+      header{padding:40px 0 8px}
+      .kicker{
+        display:inline-flex;align-items:center;gap:8px;
+        font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);
+      }
+      .kicker::before{content:"";width:22px;height:2px;background:var(--red);display:inline-block}
+      h1{
+        font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+        font-size:clamp(34px,7vw,52px);line-height:1.05;font-weight:700;letter-spacing:-.01em;
+        margin:14px 0 14px;
+      }
+      h1 em{font-style:italic;color:var(--red)}
+      .lede{font-size:18px;line-height:1.55;color:var(--ink-2);margin:0;max-width:620px}
+      .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
+      .meta-pill{
+        font-size:13px;font-weight:600;color:var(--ink-2);
+        border:1px solid var(--line);background:var(--bg-soft);
+        padding:7px 12px;border-radius:999px;
+      }
+      .meta-pill strong{color:var(--ink)}
+
+      .why-order{
+        margin:26px 0 6px;background:var(--red-soft);border:1px solid color-mix(in srgb,var(--red) 22%,transparent);
+        border-radius:var(--radius);padding:18px 20px;
+      }
+      .why-order h2{font-size:15px;margin:0 0 6px;color:var(--red-ink)}
+      .why-order p{margin:0;font-size:15px;color:var(--ink-2)}
+      .why-order p strong{color:var(--ink)}
+
+      /* ---------- Sticky progress ---------- */
+      .progress-bar{
+        position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+        backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--line);
+        margin:22px -20px 0;padding:12px 20px;
+      }
+      .progress-inner{max-width:780px;margin:0 auto;display:flex;align-items:center;gap:14px}
+      .progress-track{flex:1;height:8px;background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+      .progress-fill{height:100%;width:0%;background:var(--red);border-radius:999px;transition:width .35s ease}
+      .progress-label{font-size:13px;font-weight:700;white-space:nowrap}
+      .progress-label span{color:var(--ink-3);font-weight:600}
+      .reset-btn{
+        border:1px solid var(--line);background:var(--bg-card);color:var(--ink-2);
+        font:inherit;font-size:13px;font-weight:600;padding:8px 12px;border-radius:999px;cursor:pointer;min-height:36px;
+      }
+
+      /* ---------- Jump nav ---------- */
+      .jump{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 4px}
+      .jump a{
+        text-decoration:none;color:var(--ink);font-size:13.5px;font-weight:600;
+        border:1px solid var(--line);border-radius:999px;padding:9px 14px;background:var(--bg-card);
+        display:inline-flex;align-items:center;min-height:38px;
+      }
+      .jump a b{color:var(--red);margin-right:6px}
+
+      /* ---------- Timeline ---------- */
+      .phase{margin-top:44px;scroll-margin-top:76px}
+      .phase-head{display:flex;gap:16px;align-items:flex-start}
+      .phase-badge{
+        flex:0 0 auto;width:58px;height:58px;border-radius:16px;background:var(--ink);color:var(--bg);
+        display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;
+      }
+      @media (prefers-color-scheme: dark){.phase-badge{background:var(--ink);color:#161513}}
+      .phase-badge .n{font-family:Georgia,serif;font-size:22px;font-weight:700}
+      .phase-badge .u{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:3px;opacity:.75}
+      .phase-badge.arrival{background:var(--red);color:#fff}
+      .phase-title h2{font-family:Georgia,serif;font-size:26px;line-height:1.15;margin:2px 0 4px}
+      .phase-title p{margin:0;color:var(--ink-3);font-size:14.5px}
+      .phase-count{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--ink-3);white-space:nowrap;padding-top:6px}
+
+      .steps{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+      .step{
+        display:flex;gap:14px;text-align:left;width:100%;
+        background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);
+        padding:18px;cursor:pointer;font:inherit;color:inherit;box-shadow:var(--shadow);
+        -webkit-tap-highlight-color:transparent;
+      }
+      .step:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+      .box{
+        flex:0 0 auto;width:26px;height:26px;margin-top:2px;border-radius:7px;
+        border:2px solid var(--line-strong);background:var(--bg);
+        display:flex;align-items:center;justify-content:center;
+        font-size:15px;font-weight:800;color:var(--bg);transition:background .15s,border-color .15s;
+      }
+      .step.done .box{background:var(--check-bg);border-color:var(--check-bg);color:var(--bg)}
+      @media (prefers-color-scheme: dark){.step.done .box{color:#161513}}
+      .step.done .step-title{color:var(--ink-3);text-decoration:line-through;text-decoration-thickness:1px}
+      .step-body{flex:1;min-width:0}
+      .step-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}
+      .step-title{font-size:16.5px;font-weight:700;line-height:1.35}
+      .time{
+        font-size:11.5px;font-weight:700;letter-spacing:.02em;color:var(--ink-2);
+        background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:2px 8px;white-space:nowrap;
+      }
+      .step p{margin:6px 0 0;font-size:14.5px;color:var(--ink-2);line-height:1.55}
+      .step p strong{color:var(--ink)}
+      .fact{
+        margin-top:10px;font-size:13.5px;line-height:1.5;border-radius:10px;padding:10px 12px;
+      }
+      .fact.red{background:var(--red-soft);color:var(--ink-2)}
+      .fact.jade{background:var(--jade-soft);color:var(--ink-2)}
+      .fact.amber{background:var(--amber-soft);color:var(--ink-2)}
+      .fact b{color:var(--ink)}
+      .step a.inline-link{font-weight:600}
+
+      /* ---------- QR section ---------- */
+      .section{margin-top:52px;scroll-margin-top:76px}
+      .section h2{font-family:Georgia,serif;font-size:28px;line-height:1.15;margin:0 0 8px}
+      .section .sub{color:var(--ink-2);font-size:15.5px;margin:0;max-width:620px}
+      .qr-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:20px}
+      @media(min-width:640px){.qr-grid{grid-template-columns:repeat(3,1fr)}}
+      .qr-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-card);padding:20px;box-shadow:var(--shadow)}
+      .qr-art{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+      .qr-art svg{width:38px;height:38px}
+      .qr-card.pay .qr-art{background:var(--red-soft)}
+      .qr-card.scan .qr-art{background:var(--blue-soft)}
+      .qr-card.transit .qr-art{background:var(--jade-soft)}
+      .qr-card h3{font-size:16px;margin:0 0 4px}
+      .qr-card .who{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+      .qr-card.pay .who{color:var(--red)} .qr-card.scan .who{color:var(--blue)} .qr-card.transit .who{color:var(--jade)}
+      .qr-card p{font-size:14px;color:var(--ink-2);margin:0;line-height:1.55}
+      .qr-card p+p{margin-top:8px}
+      .qr-card code{
+        font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;
+        background:var(--bg-soft);border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--ink);
+      }
+
+      /* ---------- Resources / affiliate ---------- */
+      /*
+        ============================================================
+        AFFILIATE LINKS — EDIT HERE (one place)
+        The four hrefs in the "Book & buy" section below are the
+        providers' public homepages as placeholders. Replace each
+        href with your personal affiliate tracking link when ready:
+          1. Airalo      — eSIM
+          2. Trip.com    — trains, hotels, attraction tickets
+          3. Klook       — attraction tickets & day trips
+          4. SafetyWing  — travel insurance
+        Keep rel="sponsored nofollow noopener" on each link.
+        ============================================================
+      */
+      .res-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:20px}
+      @media(min-width:640px){.res-grid{grid-template-columns:1fr 1fr}}
+      .res-card{
+        border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-card);
+        padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px;
+      }
+      .res-tag{font-size:11.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--red)}
+      .res-card h3{font-size:18px;margin:0}
+      .res-card p{font-size:14px;color:var(--ink-2);margin:0;line-height:1.55;flex:1}
+      .res-link{
+        display:inline-flex;align-items:center;gap:6px;margin-top:10px;
+        font-weight:700;font-size:14.5px;text-decoration:none;color:var(--ink);
+        border:1px solid var(--line-strong);border-radius:10px;padding:11px 14px;min-height:44px;
+        align-self:flex-start;
+      }
+      .res-link:hover{border-color:var(--ink)}
+      .reward-note{
+        margin-top:10px;background:var(--jade-soft);
+        border:1px solid color-mix(in srgb,var(--jade) 35%,transparent);
+        border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.55;color:var(--ink-2);
+      }
+      .reward-note .reward-head{font-weight:800;color:var(--ink);display:block;margin-bottom:2px}
+      .reward-note code{
+        font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;font-weight:700;
+        background:var(--bg-card);border:1px solid var(--line-strong);border-radius:6px;
+        padding:1px 7px;color:var(--ink);letter-spacing:.04em;
+      }
+      .disclosure{
+        margin-top:16px;font-size:13px;color:var(--ink-3);line-height:1.55;
+        border-top:1px dashed var(--line-strong);padding-top:14px;
+      }
+
+      /* ---------- Footer ---------- */
+      footer{margin-top:56px;border-top:1px solid var(--line);padding-top:22px}
+      footer p{font-size:13.5px;color:var(--ink-3);margin:0 0 8px;line-height:1.6}
+      footer .checked{font-weight:700;color:var(--ink-2)}
+      @media print{
+        .progress-bar,.jump,.reset-btn{display:none!important}
+        .step{break-inside:avoid;box-shadow:none}
+        body{background:#fff}
+      }
+      @media (prefers-reduced-motion: reduce){
+        html{scroll-behavior:auto}
+        .progress-fill{transition:none}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+
+      <header>
+        <span class="kicker">First trip to China</span>
+        <h1>Set up your phone, payments &amp; bookings <em>before</em> you fly.</h1>
+        <p class="lede">China runs on apps and QR codes. Almost everything on this list is easy at home and painful after you land — so work through it in countdown order, from 30 days out to your first 72 hours.</p>
+        <div class="meta-row">
+          <span class="meta-pill"><strong>18 steps</strong> · in order</span>
+          <span class="meta-pill">About <strong>4 hours</strong> of setup, spread over a month</span>
+          <span class="meta-pill">For <strong>first-time visitors</strong></span>
+          <span class="meta-pill"><strong>Free</strong> — no account, nothing to sign up for</span>
+        </div>
+        <div class="why-order">
+          <h2>Why the order matters</h2>
+          <p>Three things only really work <strong>before departure</strong>: payment apps need passport verification on a normal connection, several booking systems verify foreign passports slowly, and Google services — Maps, Gmail, Play Store — <strong>do not load on mainland connections</strong>. Do those at home and the trip itself gets simple.</p>
+        </div>
+      </header>
+
+      <div class="progress-bar" aria-live="polite">
+        <div class="progress-inner">
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="progress-label"><span id="progressCount">0 of 18</span> done</div>
+          <button class="reset-btn" id="resetBtn" type="button">Reset</button>
+        </div>
+      </div>
+
+      <nav class="jump" aria-label="Jump to a stage">
+        <a href="#d30"><b>30d</b> Visa &amp; accounts</a>
+        <a href="#d21"><b>21d</b> Big tickets</a>
+        <a href="#d14"><b>14d</b> Payments &amp; data</a>
+        <a href="#d7"><b>7d</b> Offline prep</a>
+        <a href="#d3"><b>3d</b> Final checks</a>
+        <a href="#h72"><b>72h</b> On the ground</a>
+        <a href="#qr"><b>QR</b> The 3 codes</a>
+        <a href="#book"><b>→</b> Book &amp; buy</a>
+      </nav>
+
+      <!-- ============ 30 DAYS ============ -->
+      <section class="phase" id="d30">
+        <div class="phase-head">
+          <div class="phase-badge"><span class="n">30</span><span class="u">days</span></div>
+          <div class="phase-title">
+            <h2>30 days before — permission &amp; accounts</h2>
+            <p>The slow paperwork. Start it first because none of it is instant.</p>
+          </div>
+          <span class="phase-count" data-count-for="d30"></span>
+        </div>
+        <div class="steps" data-phase="d30">
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Check how you'll enter: visa-free, 240-hour transit, or a visa</span><span class="time">20 min</span></span>
+              <p>Many nationalities can now enter visa-free for a short stay, and travellers from many countries can also use the <strong>240-hour (10-day) visa-free transit</strong> route if flying in from one country and out to a third. Check which route fits your passport and your exact itinerary — the transit route has conditions on ports of entry and onward tickets.</p>
+              <span class="fact red" style="display:block"><b>Why first:</b> if you do need a visa, processing time decides everything else. Confirm the current rules for your nationality on an official Chinese embassy or immigration source, not a blog.</span>
+            </span>
+          </div>
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Create your Railway 12306 account and submit passport verification</span><span class="time">15 min + waiting</span></span>
+              <p>12306 is China's official rail booking system — nearly every train ticket starts here. Register with your passport details exactly as printed, then submit the identity verification straight away.</p>
+              <span class="fact amber" style="display:block"><b>Why now:</b> passport verification for foreign documents <b>can be slow from abroad</b> — sometimes days. Starting at 30 days out means it is done long before tickets for your travel dates go on sale.</span>
+            </span>
+          </div>
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Book hotels that explicitly accept foreign guests — on a refundable rate</span><span class="time">30 min</span></span>
+              <p>When booking, check the listing states it accepts guests from outside mainland China, and choose a <strong>refundable rate</strong> while your plans are still moving. International booking platforms flag this clearly; small local listings often don't.</p>
+              <span class="fact red" style="display:block"><b>Good to know:</b> hotels have <b>not been allowed to refuse foreign guests since 2024</b> — but enforcement is uneven, especially at small or budget properties. A listing that says it accepts you, in writing, saves an awkward arrival.</span>
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============ 21 DAYS ============ -->
+      <section class="phase" id="d21">
+        <div class="phase-head">
+          <div class="phase-badge"><span class="n">21</span><span class="u">days</span></div>
+          <div class="phase-title">
+            <h2>21 days before — the tickets that sell out</h2>
+            <p>Major sights are real-name and timed. Your passport is your ticket.</p>
+          </div>
+          <span class="phase-count" data-count-for="d21"></span>
+        </div>
+        <div class="steps" data-phase="d21">
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Book big sights under your passport number</span><span class="time">20 min</span></span>
+              <p>The Forbidden City and other headline sights sell <strong>real-name, timed-entry tickets tied to your passport</strong> — there is often no walk-up option, and popular slots go days ahead. Book each sight for a specific date and time slot, using the passport you will actually carry.</p>
+              <span class="fact amber" style="display:block"><b>Carry the same passport.</b> Entry staff check the document against the booking. A booking under an old or different passport number can mean no entry.</span>
+            </span>
+          </div>
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Book your longest train legs as soon as sales open</span><span class="time">15 min</span></span>
+              <p>With your 12306 verification done, book intercity trains when your dates open up — holiday and weekend departures on popular routes sell out. Screenshot every booking; the details live in the app, but a screenshot works with no signal.</p>
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============ 14 DAYS ============ -->
+      <section class="phase" id="d14">
+        <div class="phase-head">
+          <div class="phase-badge"><span class="n">14</span><span class="u">days</span></div>
+          <div class="phase-title">
+            <h2>14 days before — payments &amp; data</h2>
+            <p>The most important week. This is what makes China feel easy or impossible.</p>
+          </div>
+          <span class="phase-count" data-count-for="d14"></span>
+        </div>
+        <div class="steps" data-phase="d14">
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Install Alipay and WeChat — and finish setup at home</span><span class="time">25 min</span></span>
+              <p>Download both apps, <strong>bind a foreign Visa or Mastercard</strong>, and complete the <strong>passport identity verification</strong> while you're still at home. Do a tiny test payment if you can. Alipay alone covers most visitors; WeChat Pay is the backup some smaller places prefer.</p>
+              <span class="fact jade" style="display:block"><b>The fee rule:</b> single transactions <b>under ¥200 carry no fee</b> on a foreign card; above ¥200, a <b>3% fee</b> applies. Splitting a large bill into smaller payments where a shop allows it keeps you under the line.</span>
+            </span>
+          </div>
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Buy and install an eSIM for data on arrival</span><span class="time">10 min</span></span>
+              <p>Buy a China data eSIM before you fly and install it at home — most activate automatically when you land. You need data working in the first ten minutes: for maps, your hotel address, and your payment apps. See <a class="inline-link" href="#book">Airalo in Book &amp; buy</a>.</p>
+              <span class="fact red" style="display:block"><b>Do it before departure:</b> buying and installing an eSIM is far simpler on your home connection than on airport Wi-Fi with a queue behind you.</span>
+            </span>
+          </div>
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Sort travel insurance</span><span class="time">10 min</span></span>
+              <p>Buy cover that includes medical care in China and trip disruption, and save the policy number and emergency contact offline in your phone — not just in your email. See <a class="inline-link" href="#book">SafetyWing in Book &amp; buy</a>.</p>
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============ 7 DAYS ============ -->
+      <section class="phase" id="d7">
+        <div class="phase-head">
+          <div class="phase-badge"><span class="n">7</span><span class="u">days</span></div>
+          <div class="phase-title">
+            <h2>7 days before — go offline-ready</h2>
+            <p>Assume your usual apps won't load. Prepare the replacements now.</p>
+          </div>
+          <span class="phase-count" data-count-for="d7"></span>
+        </div>
+        <div class="steps" data-phase="d7">
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Download offline maps and apps before departure</span><span class="time">20 min</span></span>
+              <p><strong>Google services do not load on mainland connections</strong> — that includes Google Maps and the Play Store, so anything you forget cannot be fetched later. Download offline map areas for every city you're visiting, plus a translation app with the Chinese language pack downloaded for offline use.</p>
+            </span>
+          </div>
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Save every key address in Chinese characters</span><span class="time">15 min</span></span>
+              <p>Save your hotel and main destinations <strong>in Chinese characters</strong> — as notes and as screenshots. Taxi drivers and helpful strangers work from the Chinese address; an English or pinyin address often means nothing on the street. Your hotel's booking page or listing usually shows the Chinese address — copy it from there.</p>
+              <span class="fact jade" style="display:block"><b>Make a “show the driver” note:</b> hotel name + Chinese address + the hotel's phone number, in one screenshot. It solves most first-day transport problems.</span>
+            </span>
+          </div>
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Screenshot your documents folder</span><span class="time">10 min</span></span>
+              <p>One offline folder: passport photo page, visa or visa-free basis, hotel confirmations, train bookings, insurance, and your Chinese address cards. If your phone dies or has no signal, a travelling companion's copy helps too.</p>
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============ 3 DAYS ============ -->
+      <section class="phase" id="d3">
+        <div class="phase-head">
+          <div class="phase-badge"><span class="n">3</span><span class="u">days</span></div>
+          <div class="phase-title">
+            <h2>3 days before — final checks</h2>
+            <p>Small things, done once, that remove arrival-day friction.</p>
+          </div>
+          <span class="phase-count" data-count-for="d3"></span>
+        </div>
+        <div class="steps" data-phase="d3">
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Fill in the online arrival card before landing</span><span class="time">10 min</span></span>
+              <p>Complete the online arrival card in advance and save the confirmation. It is one less form, queue, and pen hunt between the plane and passport control.</p>
+            </span>
+          </div>
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Get ¥300–500 in small cash notes as backup</span><span class="time">10 min</span></span>
+              <p>Carry <strong>¥300–500 in small notes</strong>. Mobile payment covers nearly everything, but cash rescues you when a phone dies, a small vendor's code won't scan, or a card check fails. Small notes matter — a ¥100 note can be hard to break.</p>
+            </span>
+          </div>
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Test everything once, on purpose</span><span class="time">10 min</span></span>
+              <p>Open Alipay and WeChat and confirm your card shows as active. Open 12306 and confirm you're logged in and verified. Check the eSIM is installed and ready to activate. Charge a power bank — your phone is now your wallet, ticket, map, and translator.</p>
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============ FIRST 72 HOURS ============ -->
+      <section class="phase" id="h72">
+        <div class="phase-head">
+          <div class="phase-badge arrival"><span class="n">72</span><span class="u">hours</span></div>
+          <div class="phase-title">
+            <h2>First 72 hours in China</h2>
+            <p>You've landed. Four things to settle in the first three days.</p>
+          </div>
+          <span class="phase-count" data-count-for="h72"></span>
+        </div>
+        <div class="steps" data-phase="h72">
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Turn on the eSIM and make one small payment</span><span class="time">5 min</span></span>
+              <p>Activate data as soon as you're off the plane, then buy something small — a water, a metro ride — with Alipay. Proving your payment setup works on a ¥5 purchase beats discovering a problem on a ¥500 one.</p>
+            </span>
+          </div>
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Set up your transit code for the city you're in</span><span class="time">5 min</span></span>
+              <p>Metro and bus travel uses a separate <strong>transit code</strong> inside Alipay or WeChat, activated per city. Set it up at the hotel, not at the gate with a queue behind you. See <a class="inline-link" href="#qr">the 3 QR codes</a> below.</p>
+            </span>
+          </div>
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">If you're not in a hotel: register your stay within 24 hours</span><span class="time">30 min</span></span>
+              <p>Staying with friends, or in a rental? You must <strong>register your stay with the local police within 24 hours</strong> of arrival. <strong>Hotels do this for you automatically</strong> when you check in with your passport — one more reason a hotel is the simplest base for a first trip.</p>
+            </span>
+          </div>
+
+          <div class="step" role="button" tabindex="0" aria-pressed="false">
+            <span class="box" aria-hidden="true">✓</span>
+            <span class="step-body">
+              <span class="step-top"><span class="step-title">Keep your passport on you for ticketed sights and trains</span><span class="time">—</span></span>
+              <p>Your bookings are tied to it, and stations and sights check it at entry. A photo of it is a useful backup, but it doesn't replace the document at a ticket gate.</p>
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============ QR CODES ============ -->
+      <section class="section" id="qr">
+        <h2>The three QR codes that confuse everyone</h2>
+        <p class="sub">China uses QR codes for almost everything, and the three you'll meet daily work in opposite directions. Mixing them up is the most common first-day stall — here's the difference.</p>
+        <div class="qr-grid">
+
+          <article class="qr-card pay">
+            <div class="qr-art" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#b42318" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v.01M14 21v.01M18 18h3v3h-3z"/></svg>
+            </div>
+            <p class="who">You show it</p>
+            <h3>1 · Pay code</h3>
+            <p>Your personal payment barcode. The cashier scans <em>you</em>. Find it in Alipay or WeChat under <code>Pay / Receive</code>.</p>
+            <p>Used at: supermarkets, chain cafés, convenience stores — anywhere with a scanner at the till.</p>
+          </article>
+
+          <article class="qr-card scan">
+            <div class="qr-art" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M3 12h18"/></svg>
+            </div>
+            <p class="who">You scan it</p>
+            <h3>2 · Scan-to-pay</h3>
+            <p>The shop's code, printed on a card at the counter. You open <code>Scan</code>, point your phone at it, type the amount, confirm.</p>
+            <p>Used at: street stalls, small restaurants, market vendors. Also how you scan a menu to order in many restaurants.</p>
+          </article>
+
+          <article class="qr-card transit">
+            <div class="qr-art" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.8"><rect x="4" y="3" width="16" height="13" rx="2"/><path d="M4 10h16M8 20l1.5-4M16 20l-1.5-4"/><circle cx="8.5" cy="13" r=".6" fill="#0f766e"/><circle cx="15.5" cy="13" r=".6" fill="#0f766e"/></svg>
+            </div>
+            <p class="who">You show it — at gates</p>
+            <h3>3 · Transit code</h3>
+            <p>A separate code just for metro and buses, under <code>Transport</code> in Alipay or WeChat. It is <em>not</em> your pay code.</p>
+            <p>Set it up once per city before your first ride, and hold it up to the gate scanner — fares are charged to your linked card automatically.</p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ============ BOOK & BUY ============ -->
+      <section class="section" id="book">
+        <h2>Book &amp; buy</h2>
+        <p class="sub">The four services this checklist points to. Each link goes to the provider's official site.</p>
+        <div class="res-grid">
+
+          <article class="res-card">
+            <span class="res-tag">Data · eSIM</span>
+            <h3>Airalo</h3>
+            <p>Buy a China data eSIM before you fly and install it at home, so you have data from the moment you land.</p>
+            <a class="res-link" href="https://airalo.tpk.mx/v3rRsctu" target="_blank" rel="sponsored nofollow noopener">Get a China eSIM →</a>
+          </article>
+
+          <article class="res-card">
+            <span class="res-tag">Trains · Hotels · Tickets</span>
+            <h3>Trip.com</h3>
+            <p>English-language booking for trains, hotels that accept foreign guests, and attraction tickets — with your passport details handled correctly.</p>
+            <a class="res-link" href="https://www.trip.com" target="_blank" rel="sponsored nofollow noopener">Book on Trip.com →</a>
+          </article>
+
+          <article class="res-card">
+            <span class="res-tag">Attractions · Day trips</span>
+            <h3>Klook</h3>
+            <p>Timed attraction tickets, day trips, and transport passes, bookable in English with instant confirmation for many sights.</p>
+            <a class="res-link" href="https://klook.tpk.mx/SJKqWP5n" target="_blank" rel="sponsored nofollow noopener">Browse Klook →</a>
+          </article>
+
+          <article class="res-card">
+            <span class="res-tag">Travel insurance</span>
+            <h3>SafetyWing</h3>
+            <p>Travel medical insurance you can buy online in minutes, including cover for medical care during your trip to China.</p>
+            <div class="reward-note">
+              <span class="reward-head">Get 8 weeks of free electronics theft cover</span>
+              Before you sign up for Nomad Insurance, enter the reward code <code>CHINATRIP</code> during sign-up — it adds 8 weeks of free cover for theft of your electronics. <strong>The code must be entered before you complete sign-up</strong>; it can't be applied afterwards.
+            </div>
+            <a class="res-link" href="https://safetywing.com/?referenceID=26642413" target="_blank" rel="sponsored nofollow noopener">Get a quote →</a>
+          </article>
+
+        </div>
+        <p class="disclosure"><strong>Disclosure:</strong> Some links on this page are affiliate links. If you buy through them, this site may earn a commission at no extra cost to you. The checklist itself is free and stays the same either way.</p>
+      </section>
+
+      <footer>
+        <p>Rules change — visa policies, payment rules, and booking requirements are updated often. Confirm visa and booking rules on official channels (your nearest Chinese embassy, official immigration sources, and the venue or railway itself) before you rely on them.</p>
+        <p class="checked">Last checked: November 2026</p>
+      </footer>
+
+    </div>
+
+    <script>
+      // Checklist state lives only in this tab's memory — nothing is saved or sent anywhere.
+      (function () {
+        var steps = Array.prototype.slice.call(document.querySelectorAll('.step'));
+        var fill = document.getElementById('progressFill');
+        var count = document.getElementById('progressCount');
+        var total = steps.length;
+
+        function refresh() {
+          var done = steps.filter(function (s) { return s.classList.contains('done'); }).length;
+          fill.style.width = (total ? (done / total) * 100 : 0) + '%';
+          count.textContent = done + ' of ' + total;
+          document.querySelectorAll('[data-count-for]').forEach(function (el) {
+            var phase = el.getAttribute('data-count-for');
+            var inPhase = steps.filter(function (s) {
+              return s.closest('[data-phase]') && s.closest('.steps').getAttribute('data-phase') === phase;
+            });
+            var d = inPhase.filter(function (s) { return s.classList.contains('done'); }).length;
+            el.textContent = inPhase.length ? (d + ' / ' + inPhase.length) : '';
+          });
+        }
+
+        steps.forEach(function (step) {
+          function toggle() {
+            var done = step.classList.toggle('done');
+            step.setAttribute('aria-pressed', done ? 'true' : 'false');
+            refresh();
+          }
+          step.addEventListener('click', function (e) {
+            if (e.target.closest('a')) return; // let inline links work
+            toggle();
+          });
+          step.addEventListener('keydown', function (e) {
+            if (e.target.closest('a')) return;
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+          });
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', function () {
+          steps.forEach(function (s) { s.classList.remove('done'); s.setAttribute('aria-pressed', 'false'); });
+          refresh();
+        });
+
+        refresh();
+      })();
+    </script>
+  </body>
+</html>
